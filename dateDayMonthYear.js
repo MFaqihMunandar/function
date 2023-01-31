@@ -1,8 +1,8 @@
 //this is how you called it
 
-//<input type='text' id='day' 	style='width:6%'	onblur='tgl(this.id,this.value,"d","")'/><b>/</b>
-//<input type='text' id='month' style='width:6%'	onblur='tgl(this.id,this.value,"m","day")'/><b>/</b>
-//<input type='text' id='year' 	style='width:10%'	onblur='tgl(this.id,this.value,"y","")'/>
+//<input type='text' id='day' 	style='width:6%'	onblur='tgl(this.id,this.value,"d","","")'/><b>/</b>
+//<input type='text' id='month' style='width:6%'	onblur='tgl(this.id,this.value,"m","day","")'/><b>/</b>
+//<input type='text' id='year' 	style='width:10%'	onblur='tgl(this.id,this.value,"y","month","day")'/>
 
 function tgl(item,hari,part,day){
 	if (part === "d"){
@@ -22,5 +22,17 @@ function tgl(item,hari,part,day){
 				// check the value of month and date match because date can someday make difference like fabruari there is a chance it become 29 days in every 4 years
 				document.getElementById(day).value=m;
 			}
+	} else if (part === "y"){
+		let bulan = document.getElementById(day).value;
+		let m = new Date(hari, bulan, 0).getDate();
+		let dayy=document.getElementById(bln).value;
+		if (m < dayy){
+			document.getElementById(day).value=m;
+		} else if (dayy < m){
+			let text = "Count of dates is " + m + " days, do you want to changet the value?";
+			if (confirm(text) == true) {
+				document.getElementById(bln).value=m;
+			}
+		}
 	}
 }

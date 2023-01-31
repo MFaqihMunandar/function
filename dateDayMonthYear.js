@@ -29,9 +29,11 @@ function tgl(item,hari,part,day){
 		if (m < dayy){
 			document.getElementById(day).value=m;
 		} else if (dayy < m){
-			let text = "Count of dates is " + m + " days, do you want to changet the value?";
-			if (confirm(text) == true) {
-				document.getElementById(bln).value=m;
+			if (bulan === "02" ){
+				let text = "Count of dates is " + m + " days, do you want to changet the value?";
+				if (confirm(text) == true) {
+					document.getElementById(bln).value=m;
+				}
 			}
 		}
 	}

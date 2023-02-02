@@ -10,6 +10,9 @@
 				$.ajax({
 					// Our sample url to make request can be a php file, json, or else 
 					url: 'http://192.168.1.9:8080/sboservice/groupkredit3.php',
+   					// put your request param inside this data
+					data: {name:'yogesh',salary: 35000,email: 'yogesh@makitweb.com'},
+					// put your request author, signaature or anything else inside this header
 					headers:{         
 						'Authorization' : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBWZXIiOiIwLjAuMCIsImV4cCI6NDcyNjM4OTEyMiwibG9jYWxlIjoiIiwibWFzdGVyVmVyIjoiIiwicGxhdGZvcm0iOiIiLCJwbGF0Zm9ybVZlciI6IiIsInVzZXJJZCI6IiJ9.QIZbmB5_9Xlap_gDhjETfMI6EAmR15yBtIQkWFWJkrg',
 					},

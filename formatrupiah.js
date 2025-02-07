@@ -1,5 +1,6 @@
 //a is any string or number with maximum 2 decimal
 function rupiah(a){
+	var minus	= '';
 	//convert to string
 	a = a.toString();
 	
@@ -7,6 +8,11 @@ function rupiah(a){
 	let regx = /([^\d|^\,|^\.|^\-])/g;
 	a = a.replaceAll(regx,'');
 	a = a.replaceAll('.','');
+	//check jika nominalnya minus
+	if(a.substring(0, 1) === '-'){
+		minus = '-';
+		a = a.substring(1, a.length);
+	}
 	var jmlp = a.toString();
 	splitp	= jmlp.split(','),
 	sisap 	= splitp[0].length % 3,
@@ -17,5 +23,5 @@ function rupiah(a){
 		rupiahp += separatorp + ribuanp.join('.');
 	}
 	rupiahp = splitp[1] != undefined ? rupiahp + ',' + splitp[1] : rupiahp;
-	return rupiahp;
+	return minus+rupiahp;
 }
